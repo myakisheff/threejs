@@ -55,7 +55,7 @@ plane.receiveShadow = true;
 scene.add(plane);
 
 //BufferGeometry
-var vertices = new Float32Array( [
+let vertices = new Float32Array( [
   -10.0, 0.0,  1.0,
    10.0, 0.0,  1.0,
    10.0,  10.0,  1.0,
@@ -67,24 +67,24 @@ var vertices = new Float32Array( [
   
 let geometry = new THREE.BufferGeometry();
 geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-var material = new THREE.MeshPhongMaterial( { color: 0x23a6a4, dithering: true } );
+let material = new THREE.MeshPhongMaterial( { color: 0x23a6a4, dithering: true } );
 geometry.computeVertexNormals();
-var mesh = new THREE.Mesh( geometry, material );
+let mesh = new THREE.Mesh( geometry, material );
 mesh.position.set(0,0,-10);
 scene.add(mesh);
 
 //cube
-var boxGeometry = new THREE.BoxGeometry(2, 2, 2);
-var basicMaterial = new THREE.MeshPhongMaterial({color: 0xC8C8C8, dithering: true});
+let boxGeometry = new THREE.BoxGeometry(2, 2, 2);
+let basicMaterial = new THREE.MeshPhongMaterial({color: 0xC8C8C8, dithering: true});
 basicMaterial.color.setRGB(1,0,0);
-var cube = new THREE.Mesh(boxGeometry, basicMaterial);
+let cube = new THREE.Mesh(boxGeometry, basicMaterial);
 cube.position.set(2,1,-3);
 cube.castShadow = true;
 scene.add(cube);
 
 //pyramid
-var pyramidVertices = [1, 1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1];
-var pyramidIndices = [2, 1, 0, 0, 3, 2, 1, 3, 0, 2, 3, 1];
+let pyramidVertices = [1, 1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1];
+let pyramidIndices = [2, 1, 0, 0, 3, 2, 1, 3, 0, 2, 3, 1];
 
 let pyramidGeometry = new THREE.BufferGeometry();
 
