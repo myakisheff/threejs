@@ -8,8 +8,37 @@
     <title>Models</title>
 </head>
 <body>
-    <!-- <canvas id="canv"></canvas> -->
-    <!-- <script src="https://threejs.org/build/three.js"></script> -->
+    <main>
+        <div class="threejs"></div>
+
+        <form class="form">
+            <fieldset class="lastField">
+              <legend>Цвет объектов</legend>
+              <label>
+                <input type="radio" name="color" id="red" checked> Красный
+              </label>
+              <label>
+                <input type="radio" name="color" id="blue"> Синий
+              </label>
+              <label>
+                <input type="radio" name="color" id="green"> Зеленый
+              </label>
+            </fieldset>
+            <fieldset>
+                <legend>Свет сцены</legend>
+                <label>
+                    <input type="checkbox" name="light" id="mainLight" checked> Основной свет
+                </label>
+                <label>
+                    <input type="checkbox" name="light" id="rimLight" checked> Задний свет
+                </label>
+                <label>
+                    <input type="checkbox" name="light" id="fillLight" checked> Дополнительный свет
+                </label>
+              </fieldset>
+          </form>
+    </main>
+
     <script src="scripts/scene.js" type="module"></script>
 </body>
 </html>
