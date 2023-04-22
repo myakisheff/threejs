@@ -77,13 +77,14 @@ let material = new THREE.MeshPhongMaterial( { color: 0x23a6a4, dithering: true }
 geometry.computeVertexNormals();
 let mesh = new THREE.Mesh( geometry, material );
 mesh.position.set(0,0,-10);
+mesh.receiveShadow = true;
 scene.add(mesh);
 
 //cube
-let boxGeometry = new THREE.BoxGeometry(2, 2, 2);
+let boxGeometry = new THREE.BoxGeometry(2, 6, 2);
 let basicMaterial = new THREE.MeshPhongMaterial({color: cubeC, dithering: true});
 let cube = new THREE.Mesh(boxGeometry, basicMaterial);
-cube.position.set(2,1,-3);
+cube.position.set(2,3,-3);
 cube.castShadow = true;
 scene.add(cube);
 
