@@ -5,10 +5,6 @@ let scene = new THREE.Scene();
 
 const div = document.querySelector('.threejs');
 
-const red = document.getElementById('red');
-const blue = document.getElementById('blue');
-const green = document.getElementById('green');
-
 const cubeColor = document.getElementById('cubeColor');
 const pyramidColor = document.getElementById('pyramidColor');
 
@@ -33,19 +29,19 @@ const canvas = document.querySelector("canvas");
 
 const controls = new OrbitControls(camera, canvas);
 
-//light 1 (main light)
+//main light
 const mainLight = new THREE.DirectionalLight(0xffffff, 0.7);
 mainLight.position.set(-25, 25, 25);
 mainLight.castShadow = true;
 scene.add(mainLight);
 
-//light 2 (Fill light)
+//Fill light
 const fillLight = new THREE.SpotLight(0xffffff, 1);
 fillLight.position.set(0, 25, 25);
 fillLight.castShadow = true;
 scene.add(fillLight);
 
-//light 3 (Rim light)
+//Rim light
 const rimLight = new THREE.DirectionalLight(0xffffff, 0.5);
 rimLight.position.set(5, 25, -5);
 rimLight.castShadow = true;
