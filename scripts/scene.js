@@ -50,7 +50,7 @@ scene.add(rimLight);
 //plane
 const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(40, 40),
-    new THREE.MeshPhongMaterial({ color: 0xbbbbbb, dithering: true })
+    new THREE.MeshPhongMaterial({ color: 0xbbbbbb })
 );
 plane.rotation.x = - Math.PI / 2;
 plane.receiveShadow = true;
@@ -69,7 +69,7 @@ let vertices = new Float32Array( [
   
 let geometry = new THREE.BufferGeometry();
 geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-let material = new THREE.MeshPhongMaterial( { color: 0x23a6a4, dithering: true } );
+let material = new THREE.MeshPhongMaterial( { color: 0x23a6a4 } );
 geometry.computeVertexNormals();
 let mesh = new THREE.Mesh( geometry, material );
 mesh.position.set(0,0,-10);
@@ -78,7 +78,7 @@ scene.add(mesh);
 
 //cube
 let boxGeometry = new THREE.BoxGeometry(2, 6, 2);
-let basicMaterial = new THREE.MeshPhongMaterial({color: cubeC, dithering: true});
+let basicMaterial = new THREE.MeshPhongMaterial({color: cubeC});
 let cube = new THREE.Mesh(boxGeometry, basicMaterial);
 cube.position.set(2,3,-3);
 cube.castShadow = true;
@@ -97,8 +97,7 @@ pyramidGeometry.setAttribute(
 pyramidGeometry.setIndex(pyramidIndices);
 pyramidGeometry.computeVertexNormals();
 
-let pyramidMaterial = new THREE.MeshPhongMaterial({ color: pyramidC, dithering: true}); //C8C8C8
-
+let pyramidMaterial = new THREE.MeshPhongMaterial({ color: pyramidC});
 
 let pyramidMesh = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
 pyramidMesh.position.set(-2, 0.5, -2);
