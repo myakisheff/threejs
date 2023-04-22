@@ -9,6 +9,12 @@ const red = document.getElementById('red');
 const blue = document.getElementById('blue');
 const green = document.getElementById('green');
 
+const cubeColor = document.getElementById('cubeColor');
+const pyramidColor = document.getElementById('pyramidColor');
+
+let cubeC = new THREE.Color(cubeColor.value);
+let pyramidC = new THREE.Color(pyramidColor.value);
+
 const lights = document.querySelectorAll('input[type="checkbox"]');
 
 let camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
@@ -75,8 +81,7 @@ scene.add(mesh);
 
 //cube
 let boxGeometry = new THREE.BoxGeometry(2, 2, 2);
-let basicMaterial = new THREE.MeshPhongMaterial({color: 0xC8C8C8, dithering: true});
-basicMaterial.color.setRGB(1,0,0);
+let basicMaterial = new THREE.MeshPhongMaterial({color: cubeC, dithering: true});
 let cube = new THREE.Mesh(boxGeometry, basicMaterial);
 cube.position.set(2,1,-3);
 cube.castShadow = true;
@@ -95,8 +100,8 @@ pyramidGeometry.setAttribute(
 pyramidGeometry.setIndex(pyramidIndices);
 pyramidGeometry.computeVertexNormals();
 
-let pyramidMaterial = new THREE.MeshPhongMaterial({ color: 0xC8C8C8, dithering: true});
-pyramidMaterial.color.setRGB(1,0,0);
+let pyramidMaterial = new THREE.MeshPhongMaterial({ color: pyramidC, dithering: true}); //C8C8C8
+
 
 let pyramidMesh = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
 pyramidMesh.position.set(-2, 0.5, -2);
@@ -136,19 +141,14 @@ function render() {
 }
 render();
 
-red.addEventListener('focus', ()=>{
-  pyramidMaterial.color.setRGB(1,0,0);
-  basicMaterial.color.setRGB(1,0,0);
+cubeColor.addEventListener('blur', ()=>{
+  cubeC = new THREE.Color(cubeColor.value);
+  basicMaterial.color.setHex(cubeC.getHex());
 });
 
-blue.addEventListener('focus', ()=>{
-  pyramidMaterial.color.setRGB(0,0,1);
-  basicMaterial.color.setRGB(0,0,1);
-});
-
-green.addEventListener('focus', ()=>{
-  pyramidMaterial.color.setRGB(0,1,0);
-  basicMaterial.color.setRGB(0,1,0);
+pyramidColor.addEventListener('blur', ()=>{
+  pyramidC = new THREE.Color(pyramidColor.value);
+  pyramidMaterial.color.setHex(pyramidC.getHex());
 });
 
 window.addEventListener('resize', onWindowResize);
